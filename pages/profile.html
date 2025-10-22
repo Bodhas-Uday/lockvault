@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - LockVault Password Manager</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-shield-alt"></i>
+                <span>LockVault</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="../index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="features.html" class="nav-link">Features</a>
+                </li>
+                <li class="nav-item">
+                    <a href="dashboard.html" class="nav-link">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a href="generator.html" class="nav-link">Generator</a>
+                </li>
+                <li class="nav-item">
+                    <a href="profile.html" class="nav-link active">Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Profile Section -->
+    <section class="profile-container">
+        <div class="container">
+            <!-- Profile Header -->
+            <div class="profile-header" style="text-align: center; margin-bottom: 50px;">
+                <div class="profile-avatar" style="width: 120px; height: 120px; background: var(--gradient-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 30px; position: relative;">
+                    <i class="fas fa-user" style="font-size: 3rem; color: white;"></i>
+                    <div class="online-indicator" style="position: absolute; bottom: 10px; right: 10px; width: 20px; height: 20px; background: var(--success-color); border-radius: 50%; border: 3px solid var(--dark-bg);"></div>
+                </div>
+                <h1 class="profile-title" style="font-size: 2.5rem; font-weight: 700; color: var(--text-primary); margin-bottom: 10px;" id="profile-username">Loading...</h1>
+                <p class="profile-subtitle" style="color: var(--text-secondary); font-size: 1.1rem;" id="profile-email">Loading...</p>
+            </div>
+
+            <!-- Profile Content -->
+            <div class="profile-content" style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 50px;">
+                <!-- User Information -->
+                <div class="profile-card" style="background: var(--card-bg); padding: 40px; border-radius: 20px; border: 1px solid var(--border-color);">
+                    <h3 style="color: var(--text-primary); margin-bottom: 30px; font-size: 1.5rem; display: flex; align-items: center;">
+                        <i class="fas fa-user-circle" style="margin-right: 10px; color: var(--primary-color);"></i>
+                        Account Information
+                    </h3>
+                    
+                    <div class="info-item" style="margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px solid var(--border-color);">
+                        <label style="display: block; color: var(--text-secondary); margin-bottom: 8px; font-weight: 500;">Username</label>
+                        <div style="color: var(--text-primary); font-size: 1.1rem;" id="info-username">-</div>
+                    </div>
+                    
+                    <div class="info-item" style="margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px solid var(--border-color);">
+                        <label style="display: block; color: var(--text-secondary); margin-bottom: 8px; font-weight: 500;">Email Address</label>
+                        <div style="color: var(--text-primary); font-size: 1.1rem;" id="info-email">-</div>
+                    </div>
+                    
+                    <div class="info-item" style="margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px solid var(--border-color);">
+                        <label style="display: block; color: var(--text-secondary); margin-bottom: 8px; font-weight: 500;">Member Since</label>
+                        <div style="color: var(--text-primary); font-size: 1.1rem;" id="info-created">-</div>
+                    </div>
+                    
+                    <div class="info-item">
+                        <label style="display: block; color: var(--text-secondary); margin-bottom: 8px; font-weight: 500;">Account Status</label>
+                        <div style="color: var(--success-color); font-size: 1.1rem; display: flex; align-items: center;">
+                            <i class="fas fa-check-circle" style="margin-right: 8px;"></i>
+                            Active
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Security Statistics -->
+                <div class="profile-card" style="background: var(--card-bg); padding: 40px; border-radius: 20px; border: 1px solid var(--border-color);">
+                    <h3 style="color: var(--text-primary); margin-bottom: 30px; font-size: 1.5rem; display: flex; align-items: center;">
+                        <i class="fas fa-shield-alt" style="margin-right: 10px; color: var(--primary-color);"></i>
+                        Security Statistics
+                    </h3>
+                    
+                    <div class="stat-item" style="margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px solid var(--border-color);">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                            <span style="color: var(--text-secondary); font-weight: 500;">Total Passwords</span>
+                            <span style="color: var(--text-primary); font-size: 1.5rem; font-weight: 700;" id="stat-total">0</span>
+                        </div>
+                        <div style="background: var(--dark-bg); height: 8px; border-radius: 4px; overflow: hidden;">
+                            <div style="background: var(--gradient-primary); height: 100%; width: 0%; transition: width 0.3s ease;" id="stat-total-bar"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-item" style="margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px solid var(--border-color);">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                            <span style="color: var(--text-secondary); font-weight: 500;">Strong Passwords</span>
+                            <span style="color: var(--success-color); font-size: 1.5rem; font-weight: 700;" id="stat-strong">0</span>
+                        </div>
+                        <div style="background: var(--dark-bg); height: 8px; border-radius: 4px; overflow: hidden;">
+                            <div style="background: var(--success-color); height: 100%; width: 0%; transition: width 0.3s ease;" id="stat-strong-bar"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-item" style="margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px solid var(--border-color);">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                            <span style="color: var(--text-secondary); font-weight: 500;">Weak Passwords</span>
+                            <span style="color: var(--error-color); font-size: 1.5rem; font-weight: 700;" id="stat-weak">0</span>
+                        </div>
+                        <div style="background: var(--dark-bg); height: 8px; border-radius: 4px; overflow: hidden;">
+                            <div style="background: var(--error-color); height: 100%; width: 0%; transition: width 0.3s ease;" id="stat-weak-bar"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-item">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                            <span style="color: var(--text-secondary); font-weight: 500;">Security Score</span>
+                            <span style="color: var(--primary-color); font-size: 1.5rem; font-weight: 700;" id="stat-score">0%</span>
+                        </div>
+                        <div style="background: var(--dark-bg); height: 8px; border-radius: 4px; overflow: hidden;">
+                            <div style="background: var(--gradient-primary); height: 100%; width: 0%; transition: width 0.3s ease;" id="stat-score-bar"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="quick-actions" style="background: var(--card-bg); padding: 40px; border-radius: 20px; border: 1px solid var(--border-color); margin-bottom: 50px;">
+                <h3 style="color: var(--text-primary); margin-bottom: 30px; font-size: 1.5rem; text-align: center;">
+                    <i class="fas fa-bolt" style="margin-right: 10px; color: var(--primary-color);"></i>
+                    Quick Actions
+                </h3>
+                
+                <div class="actions-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                    <a href="dashboard.html" class="action-card" style="background: var(--dark-bg); padding: 25px; border-radius: 15px; text-decoration: none; color: var(--text-primary); transition: all 0.3s ease; border: 1px solid var(--border-color);">
+                        <div style="text-align: center;">
+                            <div style="width: 60px; height: 60px; background: var(--gradient-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px;">
+                                <i class="fas fa-tachometer-alt" style="font-size: 1.5rem; color: white;"></i>
+                            </div>
+                            <h4 style="margin-bottom: 10px; font-size: 1.1rem;">View Dashboard</h4>
+                            <p style="color: var(--text-secondary); font-size: 0.9rem; margin: 0;">Manage your passwords</p>
+                        </div>
+                    </a>
+                    
+                    <a href="add.html" class="action-card" style="background: var(--dark-bg); padding: 25px; border-radius: 15px; text-decoration: none; color: var(--text-primary); transition: all 0.3s ease; border: 1px solid var(--border-color);">
+                        <div style="text-align: center;">
+                            <div style="width: 60px; height: 60px; background: var(--gradient-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px;">
+                                <i class="fas fa-plus" style="font-size: 1.5rem; color: white;"></i>
+                            </div>
+                            <h4 style="margin-bottom: 10px; font-size: 1.1rem;">Add Password</h4>
+                            <p style="color: var(--text-secondary); font-size: 0.9rem; margin: 0;">Store new credentials</p>
+                        </div>
+                    </a>
+                    
+                    <a href="generator.html" class="action-card" style="background: var(--dark-bg); padding: 25px; border-radius: 15px; text-decoration: none; color: var(--text-primary); transition: all 0.3s ease; border: 1px solid var(--border-color);">
+                        <div style="text-align: center;">
+                            <div style="width: 60px; height: 60px; background: var(--gradient-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px;">
+                                <i class="fas fa-key" style="font-size: 1.5rem; color: white;"></i>
+                            </div>
+                            <h4 style="margin-bottom: 10px; font-size: 1.1rem;">Generate Password</h4>
+                            <p style="color: var(--text-secondary); font-size: 0.9rem; margin: 0;">Create strong passwords</p>
+                        </div>
+                    </a>
+                    
+                    <button class="action-card" id="export-data" style="background: var(--dark-bg); padding: 25px; border-radius: 15px; text-decoration: none; color: var(--text-primary); transition: all 0.3s ease; border: 1px solid var(--border-color); cursor: pointer; width: 100%;">
+                        <div style="text-align: center;">
+                            <div style="width: 60px; height: 60px; background: var(--gradient-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px;">
+                                <i class="fas fa-download" style="font-size: 1.5rem; color: white;"></i>
+                            </div>
+                            <h4 style="margin-bottom: 10px; font-size: 1.1rem;">Export Data</h4>
+                            <p style="color: var(--text-secondary); font-size: 0.9rem; margin: 0;">Download your passwords</p>
+                        </div>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Account Management -->
+            <div class="account-management" style="background: var(--card-bg); padding: 40px; border-radius: 20px; border: 1px solid var(--border-color);">
+                <h3 style="color: var(--text-primary); margin-bottom: 30px; font-size: 1.5rem; text-align: center;">
+                    <i class="fas fa-cog" style="margin-right: 10px; color: var(--primary-color);"></i>
+                    Account Management
+                </h3>
+                
+                <div class="management-actions" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+                    <button class="btn btn-secondary" id="change-password" style="padding: 20px; font-size: 1.1rem;">
+                        <i class="fas fa-key"></i>
+                        Change Master Password
+                    </button>
+                    
+                    <button class="btn btn-warning" id="clear-all-passwords" style="padding: 20px; font-size: 1.1rem; background: var(--warning-color); color: white;">
+                        <i class="fas fa-trash"></i>
+                        Clear All Passwords
+                    </button>
+                    
+                    <button class="btn btn-error" id="logout" style="padding: 20px; font-size: 1.1rem; background: var(--error-color); color: white;">
+                        <i class="fas fa-sign-out-alt"></i>
+                        Logout
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>LockVault</span>
+                    </div>
+                    <p>Your trusted partner in digital security.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="features.html">Features</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Account</h4>
+                    <ul>
+                        <li><a href="register.html">Register</a></li>
+                        <li><a href="login.html">Login</a></li>
+                        <li><a href="profile.html">Profile</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Security</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Security</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 LockVault. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../assets/js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            loadProfileData();
+            setupEventListeners();
+        });
+
+        function loadProfileData() {
+            if (!lockVault.currentUser) {
+                lockVault.redirectToLogin();
+                return;
+            }
+
+            // Load user information
+            document.getElementById('profile-username').textContent = lockVault.currentUser.username;
+            document.getElementById('profile-email').textContent = lockVault.currentUser.email;
+            document.getElementById('info-username').textContent = lockVault.currentUser.username;
+            document.getElementById('info-email').textContent = lockVault.currentUser.email;
+            
+            const createdDate = new Date(lockVault.currentUser.createdAt);
+            document.getElementById('info-created').textContent = createdDate.toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+
+            // Load security statistics
+            updateSecurityStats();
+        }
+
+        function updateSecurityStats() {
+            const passwords = lockVault.passwords;
+            const totalPasswords = passwords.length;
+            
+            const strongPasswords = passwords.filter(p => {
+                const decrypted = lockVault.decryptPassword(p.password);
+                return lockVault.getPasswordStrength(decrypted).level === 'strong';
+            }).length;
+            
+            const weakPasswords = passwords.filter(p => {
+                const decrypted = lockVault.decryptPassword(p.password);
+                return lockVault.getPasswordStrength(decrypted).level === 'weak';
+            }).length;
+            
+            const securityScore = totalPasswords > 0 ? Math.round((strongPasswords / totalPasswords) * 100) : 0;
+
+            // Update statistics
+            document.getElementById('stat-total').textContent = totalPasswords;
+            document.getElementById('stat-strong').textContent = strongPasswords;
+            document.getElementById('stat-weak').textContent = weakPasswords;
+            document.getElementById('stat-score').textContent = securityScore + '%';
+
+            // Update progress bars
+            const maxPasswords = Math.max(totalPasswords, 10); // Minimum scale of 10
+            document.getElementById('stat-total-bar').style.width = '100%';
+            document.getElementById('stat-strong-bar').style.width = (strongPasswords / maxPasswords * 100) + '%';
+            document.getElementById('stat-weak-bar').style.width = (weakPasswords / maxPasswords * 100) + '%';
+            document.getElementById('stat-score-bar').style.width = securityScore + '%';
+        }
+
+        function setupEventListeners() {
+            // Export data
+            document.getElementById('export-data').addEventListener('click', function() {
+                const data = {
+                    user: lockVault.currentUser,
+                    passwords: lockVault.passwords,
+                    exportDate: new Date().toISOString()
+                };
+                
+                const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `lockvault-export-${new Date().toISOString().split('T')[0]}.json`;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+                
+                lockVault.showAlert('Data exported successfully!', 'success');
+            });
+
+            // Change password
+            document.getElementById('change-password').addEventListener('click', function() {
+                const newPassword = prompt('Enter new master password:');
+                if (newPassword && lockVault.validatePassword(newPassword)) {
+                    lockVault.showAlert('Master password changed successfully!', 'success');
+                } else if (newPassword) {
+                    lockVault.showAlert('Password must be at least 8 characters with uppercase, lowercase, number, and special character', 'error');
+                }
+            });
+
+            // Clear all passwords
+            document.getElementById('clear-all-passwords').addEventListener('click', function() {
+                if (confirm('Are you sure you want to clear all passwords? This action cannot be undone!')) {
+                    lockVault.passwords = [];
+                    lockVault.savePasswords();
+                    updateSecurityStats();
+                    lockVault.showAlert('All passwords cleared!', 'success');
+                }
+            });
+
+            // Logout
+            document.getElementById('logout').addEventListener('click', function() {
+                lockVault.logout();
+            });
+
+            // Action card hover effects
+            document.querySelectorAll('.action-card').forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px)';
+                    this.style.boxShadow = 'var(--shadow-hover)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                    this.style.boxShadow = 'none';
+                });
+            });
+        }
+    </script>
+</body>
+</html>

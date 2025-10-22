@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator - LockVault Password Manager</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-shield-alt"></i>
+                <span>LockVault</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="../index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="features.html" class="nav-link">Features</a>
+                </li>
+                <li class="nav-item">
+                    <a href="dashboard.html" class="nav-link">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a href="generator.html" class="nav-link active">Generator</a>
+                </li>
+                <li class="nav-item">
+                    <a href="profile.html" class="nav-link">Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Password Generator Section -->
+    <section class="generator-container">
+        <div class="container">
+            <!-- Header -->
+            <div class="generator-header" style="text-align: center; margin-bottom: 50px;">
+                <div class="generator-icon" style="width: 100px; height: 100px; background: var(--gradient-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 30px;">
+                    <i class="fas fa-key" style="font-size: 3rem; color: white;"></i>
+                </div>
+                <h1 class="generator-title" style="font-size: 3rem; font-weight: 700; color: var(--text-primary); margin-bottom: 20px;">Password Generator</h1>
+                <p class="generator-subtitle" style="color: var(--text-secondary); font-size: 1.2rem; max-width: 600px; margin: 0 auto;">
+                    Create strong, secure passwords with customizable options. Generate passwords that are virtually impossible to crack.
+                </p>
+            </div>
+
+            <!-- Generator Card -->
+            <div class="generator-card">
+                <!-- Generated Password Display -->
+                <div class="generated-password-section" style="margin-bottom: 40px;">
+                    <label class="form-label" style="font-size: 1.2rem; margin-bottom: 15px; display: block;">
+                        <i class="fas fa-lock"></i>
+                        Generated Password
+                    </label>
+                    <div class="generated-password" id="generated-password">
+                        Click "Generate Password" to create a strong password
+                    </div>
+                    <div class="password-actions" style="display: flex; gap: 15px; margin-top: 20px; flex-wrap: wrap;">
+                        <button type="button" id="copy-password" class="btn btn-primary">
+                            <i class="fas fa-copy"></i>
+                            Copy Password
+                        </button>
+                        <button type="button" id="regenerate-password" class="btn btn-secondary">
+                            <i class="fas fa-sync-alt"></i>
+                            Regenerate
+                        </button>
+                        <button type="button" id="save-password" class="btn btn-secondary">
+                            <i class="fas fa-save"></i>
+                            Save to Vault
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Password Strength Meter -->
+                <div class="strength-meter" style="margin-bottom: 40px;">
+                    <div class="strength-label">
+                        Password Strength
+                        <span id="strength-level">Weak</span>
+                    </div>
+                    <div class="strength-bar">
+                        <div class="strength-fill" id="strength-fill"></div>
+                    </div>
+                    <div class="strength-description" id="strength-description" style="font-size: 0.9rem; color: var(--text-muted); margin-top: 10px;">
+                        Password strength will be calculated after generation
+                    </div>
+                </div>
+
+                <!-- Generator Options -->
+                <div class="generator-options">
+                    <h3 style="color: var(--text-primary); margin-bottom: 30px; font-size: 1.5rem; display: flex; align-items: center;">
+                        <i class="fas fa-cog" style="margin-right: 10px; color: var(--primary-color);"></i>
+                        Generator Options
+                    </h3>
+
+                    <!-- Password Length -->
+                    <div class="option-group" style="margin-bottom: 30px;">
+                        <label class="option-label">
+                            Password Length
+                            <span id="length-value">12</span> characters
+                        </label>
+                        <input type="range" id="password-length" min="4" max="128" value="12" 
+                               style="width: 100%; margin-bottom: 10px;">
+                        <div class="length-labels" style="display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--text-muted);">
+                            <span>4</span>
+                            <span>128</span>
+                        </div>
+                    </div>
+
+                    <!-- Character Types -->
+                    <div class="character-types" style="margin-bottom: 30px;">
+                        <h4 style="color: var(--text-primary); margin-bottom: 20px; font-size: 1.1rem;">Character Types</h4>
+                        
+                        <div class="option-checkbox">
+                            <input type="checkbox" id="include-uppercase" checked>
+                            <label for="include-uppercase">
+                                <i class="fas fa-check-circle" style="margin-right: 8px; color: var(--success-color);"></i>
+                                Uppercase Letters (A-Z)
+                            </label>
+                        </div>
+                        
+                        <div class="option-checkbox">
+                            <input type="checkbox" id="include-lowercase" checked>
+                            <label for="include-lowercase">
+                                <i class="fas fa-check-circle" style="margin-right: 8px; color: var(--success-color);"></i>
+                                Lowercase Letters (a-z)
+                            </label>
+                        </div>
+                        
+                        <div class="option-checkbox">
+                            <input type="checkbox" id="include-numbers" checked>
+                            <label for="include-numbers">
+                                <i class="fas fa-check-circle" style="margin-right: 8px; color: var(--success-color);"></i>
+                                Numbers (0-9)
+                            </label>
+                        </div>
+                        
+                        <div class="option-checkbox">
+                            <input type="checkbox" id="include-symbols" checked>
+                            <label for="include-symbols">
+                                <i class="fas fa-check-circle" style="margin-right: 8px; color: var(--success-color);"></i>
+                                Symbols (!@#$%^&*)
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Advanced Options -->
+                    <div class="advanced-options" style="background: var(--dark-bg); padding: 25px; border-radius: 15px; border: 1px solid var(--border-color); margin-bottom: 30px;">
+                        <h4 style="color: var(--text-primary); margin-bottom: 20px; font-size: 1.1rem; display: flex; align-items: center;">
+                            <i class="fas fa-cogs" style="margin-right: 10px; color: var(--primary-color);"></i>
+                            Advanced Options
+                        </h4>
+                        
+                        <div class="option-checkbox">
+                            <input type="checkbox" id="exclude-similar" checked>
+                            <label for="exclude-similar">
+                                Exclude similar characters (0, O, l, 1, I)
+                            </label>
+                        </div>
+                        
+                        <div class="option-checkbox">
+                            <input type="checkbox" id="exclude-ambiguous" checked>
+                            <label for="exclude-ambiguous">
+                                Exclude ambiguous characters ({ } [ ] ( ) / \ ' " ` ~ , ; : . < >)
+                            </label>
+                        </div>
+                        
+                        <div class="option-checkbox">
+                            <input type="checkbox" id="include-spaces">
+                            <label for="include-spaces">
+                                Include spaces
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Generate Button -->
+                    <div class="generate-section" style="text-align: center;">
+                        <button type="button" id="generate-password" class="btn btn-primary btn-large" style="padding: 20px 40px; font-size: 1.2rem;">
+                            <i class="fas fa-magic"></i>
+                            Generate Strong Password
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Password Tips -->
+            <div class="password-tips" style="background: var(--card-bg); padding: 40px; border-radius: 20px; border: 1px solid var(--border-color); margin-top: 50px;">
+                <h3 style="color: var(--text-primary); margin-bottom: 30px; text-align: center; font-size: 1.5rem;">
+                    <i class="fas fa-lightbulb" style="margin-right: 10px; color: var(--warning-color);"></i>
+                    Password Security Tips
+                </h3>
+                
+                <div class="tips-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+                    <div class="tip-item">
+                        <div class="tip-icon" style="width: 50px; height: 50px; background: var(--gradient-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 15px;">
+                            <i class="fas fa-shield-alt" style="color: white; font-size: 1.2rem;"></i>
+                        </div>
+                        <h4 style="color: var(--text-primary); margin-bottom: 10px;">Length Matters</h4>
+                        <p style="color: var(--text-secondary); line-height: 1.6; margin: 0;">
+                            Use at least 12 characters. Longer passwords are exponentially harder to crack.
+                        </p>
+                    </div>
+                    
+                    <div class="tip-item">
+                        <div class="tip-icon" style="width: 50px; height: 50px; background: var(--gradient-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 15px;">
+                            <i class="fas fa-random" style="color: white; font-size: 1.2rem;"></i>
+                        </div>
+                        <h4 style="color: var(--text-primary); margin-bottom: 10px;">Randomness is Key</h4>
+                        <p style="color: var(--text-secondary); line-height: 1.6; margin: 0;">
+                            Avoid patterns, dictionary words, or personal information in your passwords.
+                        </p>
+                    </div>
+                    
+                    <div class="tip-item">
+                        <div class="tip-icon" style="width: 50px; height: 50px; background: var(--gradient-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 15px;">
+                            <i class="fas fa-unique" style="color: white; font-size: 1.2rem;"></i>
+                        </div>
+                        <h4 style="color: var(--text-primary); margin-bottom: 10px;">Unique Per Account</h4>
+                        <p style="color: var(--text-secondary); line-height: 1.6; margin: 0;">
+                            Never reuse passwords across different accounts. Each account needs its own unique password.
+                        </p>
+                    </div>
+                    
+                    <div class="tip-item">
+                        <div class="tip-icon" style="width: 50px; height: 50px; background: var(--gradient-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 15px;">
+                            <i class="fas fa-sync-alt" style="color: white; font-size: 1.2rem;"></i>
+                        </div>
+                        <h4 style="color: var(--text-primary); margin-bottom: 10px;">Regular Updates</h4>
+                        <p style="color: var(--text-secondary); line-height: 1.6; margin: 0;">
+                            Change your passwords regularly, especially for sensitive accounts like banking and email.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>LockVault</span>
+                    </div>
+                    <p>Your trusted partner in digital security.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="features.html">Features</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Account</h4>
+                    <ul>
+                        <li><a href="register.html">Register</a></li>
+                        <li><a href="login.html">Login</a></li>
+                        <li><a href="profile.html">Profile</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Security</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Security</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 LockVault. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../assets/js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const generateBtn = document.getElementById('generate-password');
+            const copyBtn = document.getElementById('copy-password');
+            const regenerateBtn = document.getElementById('regenerate-password');
+            const saveBtn = document.getElementById('save-password');
+            const generatedPasswordDiv = document.getElementById('generated-password');
+            const lengthSlider = document.getElementById('password-length');
+            const lengthValue = document.getElementById('length-value');
+            const strengthLevel = document.getElementById('strength-level');
+            const strengthFill = document.getElementById('strength-fill');
+            const strengthDescription = document.getElementById('strength-description');
+            
+            let currentPassword = '';
+            
+            // Length slider
+            lengthSlider.addEventListener('input', function() {
+                lengthValue.textContent = this.value;
+            });
+            
+            // Generate password
+            generateBtn.addEventListener('click', generatePassword);
+            regenerateBtn.addEventListener('click', generatePassword);
+            
+            // Copy password
+            copyBtn.addEventListener('click', function() {
+                if (currentPassword) {
+                    lockVault.copyToClipboard(currentPassword);
+                }
+            });
+            
+            // Save password
+            saveBtn.addEventListener('click', function() {
+                if (currentPassword) {
+                    window.location.href = `add.html?password=${encodeURIComponent(currentPassword)}`;
+                }
+            });
+            
+            function generatePassword() {
+                const length = parseInt(lengthSlider.value);
+                const includeUppercase = document.getElementById('include-uppercase').checked;
+                const includeLowercase = document.getElementById('include-lowercase').checked;
+                const includeNumbers = document.getElementById('include-numbers').checked;
+                const includeSymbols = document.getElementById('include-symbols').checked;
+                
+                const options = {
+                    length,
+                    includeUppercase,
+                    includeLowercase,
+                    includeNumbers,
+                    includeSymbols
+                };
+                
+                const password = lockVault.generatePassword(options);
+                if (password) {
+                    currentPassword = password;
+                    generatedPasswordDiv.textContent = password;
+                    updatePasswordStrength(password);
+                }
+            }
+            
+            function updatePasswordStrength(password) {
+                const strength = lockVault.getPasswordStrength(password);
+                
+                // Update strength level
+                strengthLevel.textContent = strength.level.charAt(0).toUpperCase() + strength.level.slice(1);
+                
+                // Update strength bar
+                strengthFill.className = `strength-fill strength-${strength.level}`;
+                strengthFill.style.width = strength.score + '%';
+                
+                // Update description
+                const descriptions = {
+                    weak: 'This password is weak and easily crackable. Consider using a longer password with more character types.',
+                    fair: 'This password is moderately strong but could be improved with more character types or length.',
+                    good: 'This password is strong and provides good security for most accounts.',
+                    strong: 'This password is very strong and provides excellent security for sensitive accounts.'
+                };
+                
+                strengthDescription.textContent = descriptions[strength.level];
+            }
+            
+            // Initialize with a generated password
+            generatePassword();
+        });
+    </script>
+</body>
+</html>
