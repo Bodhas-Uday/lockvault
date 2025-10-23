@@ -184,7 +184,7 @@ LockVault/
 ### Browser Compatibility
 - Chrome 90+
 - Firefox 88+
-- Safari 14+
+- Safari 15+
 - Edge 90+
 
 ### Features Tested
