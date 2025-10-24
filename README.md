@@ -1,5 +1,5 @@
 # LockVault - Password Manager
-To view website visit https://bodhas-uday.github.io/lockvault
+To view website visit https://udayxxkumar.github.io/lockvault/
 since its a static webpage login with demo account.
 
 LockVault is a modern, secure password manager built with HTML5, CSS3, and JavaScript. This project demonstrates excellent front-end design skills, proper navigation between pages, interactive JavaScript features, form validation, and a visually appealing layout.
