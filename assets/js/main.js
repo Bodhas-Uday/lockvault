@@ -448,7 +448,7 @@ class LockVault {
     redirectToLogin() {
         // Go up one folder if already in /pages/
         const path = window.location.pathname.includes('/pages/')
-            ? '../pages/login.html'
+            ? '/lockvault/pages/pages/login.html'
             : 'pages/login.html';
         window.location.href = path;
     }
